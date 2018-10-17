@@ -1,5 +1,6 @@
 package be.pxl.ja.week4.oefening2;
 
+import java.beans.Visibility;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
@@ -45,6 +46,21 @@ public class GameBrowser {
             return false;
         });
 
+    }
+
+    public ArrayList<VideoGame> showGamesInGenre(String genre){
+        return gameCollection.selectGames(new Predicate<VideoGame>() {
+            @Override
+            public boolean test(VideoGame videoGame) {
+                for (String genreName : videoGame.getGenres()) {
+                    if (genreName.toLowerCase().equals(genre)) {
+                       return true;
+                    }
+                }
+                return false;
+
+            }
+        });
     }
 
 }
