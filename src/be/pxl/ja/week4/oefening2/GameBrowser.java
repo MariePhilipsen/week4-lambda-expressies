@@ -36,6 +36,17 @@ public class GameBrowser {
     }
 
     // kan nog korter -> if -> lampje, simplify
+
+    public ArrayList<VideoGame> showFreeGames(){
+        return gameCollection.selectGames(videoGame -> {
+            if(videoGame.getPrice() == 0){
+                return true;
+            }
+            return false;
+        });
+
+    }
+
 }
 
 
